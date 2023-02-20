@@ -5,6 +5,7 @@ import logo from './logo.svg';
 import loading from './loading.svg';
 import './App.css';
 import Sound from 'react-sound';
+import Button from './Button';
 
 const apiToken = 'BQBXlpR83yFORFKYF-wKNZXLLvcOrympGeeg31UxVsANpNewhePkObrGbjE8nX85IRfk3AbjrO4Hc4DJp4ISF0E_LEvgKZcd3nnrT2jB6DPpiV3Kh1wVTDPmhomC7GWNPwlkTPr-voHROVdeAMKovnDxG4Zc936yM1mQ7Y0Zh17eILBirpq4-OFxTP23GnqkBYPTP7dDY2VnkQ'
 
@@ -85,7 +86,7 @@ const App = () => {
       </div>
         <div className="App-buttons">
         {tracksChoice.map((track) => (
-          <button onClick={() => checkAnswer(currentTrack, track)}> {track.name} </button>
+          <Button onClick={() => checkAnswer(currentTrack, track)}> {track.name} </Button>
         ))}
         </div>
     </div>
