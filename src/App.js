@@ -7,7 +7,7 @@ import './App.css';
 import Sound from 'react-sound';
 import Button from './Button';
 
-const apiToken = 'BQBXlpR83yFORFKYF-wKNZXLLvcOrympGeeg31UxVsANpNewhePkObrGbjE8nX85IRfk3AbjrO4Hc4DJp4ISF0E_LEvgKZcd3nnrT2jB6DPpiV3Kh1wVTDPmhomC7GWNPwlkTPr-voHROVdeAMKovnDxG4Zc936yM1mQ7Y0Zh17eILBirpq4-OFxTP23GnqkBYPTP7dDY2VnkQ'
+const apiToken = 'BQB7DQHUHvfNaj5iNLckSdnB5l1IU-64xPx-iT0X2ggSFgsq6DK7402CT162T2dSzn7--GqtkUg_hbB_n8KvcAFVnY9DVkSxAPGMEPviZq69uBYJQgQwwGmjjq0BCP1-naDfTq3fj-GA-L-99UqB2AObTnbJGY0KhG7N-8PBIikGjfxlS8vXn0qTRjV8_rwUDS_hunwOESfH5w'
 
 function shuffleArray(array) {
   let counter = array.length;
@@ -40,6 +40,7 @@ const App = () => {
   const [currentTrack, setCurrentTrack] = useState([]);
   const [tracksChoice, setTracksChoice] = useState([]);
   const [songsLoaded, setSongsLoaded] = useState(false);
+  const [timeoutId, setTimeoutId] = useState();
 
   useEffect(() => { 
     fetch('https://api.spotify.com/v1/me/tracks', {
@@ -57,15 +58,30 @@ const App = () => {
     })
   }, []);
   
+  const selectNewTracks = () => {
+    if (!tracks) {
+      return;
+    }
+    setTracks(shuffleArray(tracks));
+    setCurrentTrack(tracks[0].track)
+    setTracksChoice(shuffleArray([tracks[0].track, tracks[1].track, tracks[2].track]))
+  }
 
   const checkAnswer = (choice) => {
     if (currentTrack.id === choice.id) {
-      swal('Bravo!!', 'You won', 'success')
+      swal('Bravo!!', 'You won', 'success').then(() => {
+        clearTimeout(timeoutId);
+        selectNewTracks();
+      })
     } else {
       swal('Try again', 'This is not the correct answer', 'error')
     }
   }
 
+  useEffect(() => {
+    setTimeoutId(setTimeout(() => selectNewTracks(), 30000));
+  }, [currentTrack]);
+ 
   if (!songsLoaded) {
     return (
       <div className="App">
@@ -86,7 +102,7 @@ const App = () => {
       </div>
         <div className="App-buttons">
         {tracksChoice.map((track) => (
-          <Button onClick={() => checkAnswer(currentTrack, track)}> {track.name} </Button>
+          <Button onClick={() => checkAnswer(track)}> {track.name} </Button>
         ))}
         </div>
     </div>
