@@ -7,7 +7,7 @@ import './App.css';
 import Sound from 'react-sound';
 import Button from './Button';
 
-const apiToken = '<<Copy the Spotify token here>>';
+const apiToken = 'BQCinBmOZE9gP8UE3KsqUlqM-1aDWT31_cxJhy_rBpPA6ZcC_wM1E9KmYne8SY2bYOb6mnfCdBkAhZyuBTeJ6UfAF-6CccuYYtQIj6DEykpIDxKtw3FAIjUVmtv9JSlCL5I8TM9wRVDnOkWnI-o7hhI31pECezRSeXpWkJ1IB3LkzkVzBM1eRWb5dI0H5e2Z3S4NZHZ5V_uuvw';
 
 function shuffleArray(array) {
   let counter = array.length;
@@ -30,9 +30,31 @@ function getRandomNumber(x) {
 
 
 const App = () => {
-  const [text, setText] = useState('');
-  useEffect(() => { setText('Hello NYU') }, []);
+  const [tracks, setTracks] = useState();
+  const [songsLoaded, setSongsLoaded] = useState(false);
+  useEffect(() => { 
+    fetch('https://api.spotify.com/v1/me/tracks', {
+      method: 'GET',
+      headers: {
+        Authorization: 'Bearer ' + apiToken,
+      },
+    })
+    .then(response => response.json())
+    .then((data) => {
+      console.log("Reply received! This is what I received: ", data);
+      setTracks(data.items)
+      setSongsLoaded(true)
+    })
+  }, []);
   
+  if (!songsLoaded) {
+    return (
+      <div className="App">
+        <img src={loading} className="App-logo" alt="logo"/>
+      </div>
+    );
+  }
+
   return (
     <div className="App">
       <header className="App-header">
@@ -40,8 +62,8 @@ const App = () => {
         <h1 className="App-title">Welcome on the Name that Tune</h1>
       </header>
       <div className="App-images">
-        <p>You will have to change the code to run a real game!</p>
-        <p>{text}</p>
+          <p>We have loaded {tracks.length} songs</p>
+          <p>The first song is: {tracks[0].track.name}</p>
       </div>
       <div className="App-buttons">
       </div>
