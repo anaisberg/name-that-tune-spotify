@@ -43,7 +43,7 @@ const App = () => {
   const [timeoutId, setTimeoutId] = useState();
 
   useEffect(() => { 
-    fetch('https://api.spotify.com/v1/me/tracks', {
+    fetch('https://api.spotify.com/v1/me/tracks?limit=50', {
       method: 'GET',
       headers: {
         Authorization: 'Bearer ' + apiToken,
