@@ -1,6 +1,6 @@
 /*global swal*/
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import logo from './logo.svg';
 import loading from './loading.svg';
 import './App.css';
@@ -21,15 +21,18 @@ function shuffleArray(array) {
   }
 
   return array;
-}
+};
 
 /* Return a random number between 0 included and x excluded */
 function getRandomNumber(x) {
   return Math.floor(Math.random() * x);
-}
+};
+
 
 const App = () => {
-
+  const [text, setText] = useState('');
+  useEffect(() => { setText('Hello NYU') }, []);
+  
   return (
     <div className="App">
       <header className="App-header">
@@ -38,6 +41,7 @@ const App = () => {
       </header>
       <div className="App-images">
         <p>You will have to change the code to run a real game!</p>
+        <p>{text}</p>
       </div>
       <div className="App-buttons">
       </div>

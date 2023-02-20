@@ -6336,7 +6336,11 @@
   dependencies:
     "boolbase" "~1.0.0"
 
+<<<<<<< HEAD
 "nth-check@^2.0.1", "nth-check@^2.1.1":
+=======
+"nth-check@^2.0.1":
+>>>>>>> 0766280 (update app.js)
   "integrity" "sha512-lqjrjmaOoAnWfMmBPL+XNnynZh2+swxiX3WUE0s4yEHI6m+AwrK2UZOimIRl3X/4QctVqS8AiZjFqyOGrMXb/w=="
   "resolved" "https://registry.npmjs.org/nth-check/-/nth-check-2.1.1.tgz"
   "version" "2.1.1"
