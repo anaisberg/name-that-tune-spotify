@@ -7,7 +7,7 @@ import './App.css';
 import Sound from 'react-sound';
 import Button from './Button';
 
-const apiToken = 'BQB7DQHUHvfNaj5iNLckSdnB5l1IU-64xPx-iT0X2ggSFgsq6DK7402CT162T2dSzn7--GqtkUg_hbB_n8KvcAFVnY9DVkSxAPGMEPviZq69uBYJQgQwwGmjjq0BCP1-naDfTq3fj-GA-L-99UqB2AObTnbJGY0KhG7N-8PBIikGjfxlS8vXn0qTRjV8_rwUDS_hunwOESfH5w'
+const apiToken = '<<Copy the Spotify token here>>';
 
 function shuffleArray(array) {
   let counter = array.length;
