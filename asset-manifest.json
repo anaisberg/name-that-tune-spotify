@@ -1,8 +1,15 @@
 {
-  "main.css": "static/css/main.d96e86a2.css",
-  "main.css.map": "static/css/main.d96e86a2.css.map",
-  "main.js": "static/js/main.b78b4ec4.js",
-  "main.js.map": "static/js/main.b78b4ec4.js.map",
-  "static/media/loading.svg": "static/media/loading.9d4cbf40.svg",
-  "static/media/logo.svg": "static/media/logo.79f6b6a0.svg"
+  "main.css": "/name-that-tune-spotify/static/css/main.f625c6a5.chunk.css",
+  "main.js": "/name-that-tune-spotify/static/js/main.1ed428e9.chunk.js",
+  "main.js.map": "/name-that-tune-spotify/static/js/main.1ed428e9.chunk.js.map",
+  "static/js/1.0de34c74.chunk.js": "/name-that-tune-spotify/static/js/1.0de34c74.chunk.js",
+  "static/js/1.0de34c74.chunk.js.map": "/name-that-tune-spotify/static/js/1.0de34c74.chunk.js.map",
+  "runtime~main.js": "/name-that-tune-spotify/static/js/runtime~main.04bcf588.js",
+  "runtime~main.js.map": "/name-that-tune-spotify/static/js/runtime~main.04bcf588.js.map",
+  "static/media/logo.svg": "/name-that-tune-spotify/static/media/logo.79f6b6a0.svg",
+  "static/media/loading.svg": "/name-that-tune-spotify/static/media/loading.9d4cbf40.svg",
+  "static/css/main.f625c6a5.chunk.css.map": "/name-that-tune-spotify/static/css/main.f625c6a5.chunk.css.map",
+  "index.html": "/name-that-tune-spotify/index.html",
+  "precache-manifest.676f52687ff170e7e1b11884ae852e0e.js": "/name-that-tune-spotify/precache-manifest.676f52687ff170e7e1b11884ae852e0e.js",
+  "service-worker.js": "/name-that-tune-spotify/service-worker.js"
 }
