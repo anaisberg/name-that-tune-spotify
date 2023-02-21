@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/name-that-tune-spotify/static/css/main.d56e516d.css",
-    "main.js": "/name-that-tune-spotify/static/js/main.224af377.js",
+    "main.js": "/name-that-tune-spotify/static/js/main.db126a5e.js",
     "static/media/logo.svg": "/name-that-tune-spotify/static/media/logo.cb0ec48de48ec1589ce5b4b3730071e6.svg",
     "static/media/loading.svg": "/name-that-tune-spotify/static/media/loading.6e6379f4ec725d6513e9566022145317.svg",
     "index.html": "/name-that-tune-spotify/index.html",
     "main.d56e516d.css.map": "/name-that-tune-spotify/static/css/main.d56e516d.css.map",
-    "main.224af377.js.map": "/name-that-tune-spotify/static/js/main.224af377.js.map"
+    "main.db126a5e.js.map": "/name-that-tune-spotify/static/js/main.db126a5e.js.map"
   },
   "entrypoints": [
     "static/css/main.d56e516d.css",
-    "static/js/main.224af377.js"
+    "static/js/main.db126a5e.js"
   ]
 }
