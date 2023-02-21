@@ -1,6 +1,6 @@
 # Name that Tune - Spotify
 
-This is a simple demo of how to create a blindtest using Spotify and React.
+This is a simple demo of how to create a Name that Tune game using Spotify and React.
 
 ## Getting started
 
