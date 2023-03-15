@@ -30,17 +30,15 @@ function getRandomNumber(x) {
 
 const AlbumCover = (props) =>  {
   const src = props.currentTrack.album.images[0].url; 
+  const alt = 'Album cover for ' + track.album.name;
   return (
-    <img src={src} style={{ width: 400, height: 400 }} />
+    <img alt={alt} src={src} style={{ width: 400, height: 400 }} />
   );
 }
 
 const App = () => {
   const [tracks, setTracks] = useState([]);
-  const [currentTrack, setCurrentTrack] = useState([]);
-  const [tracksChoice, setTracksChoice] = useState([]);
   const [songsLoaded, setSongsLoaded] = useState(false);
-  const [shouldPlay, setShouldPlay] = useState(false);
 
   useEffect(() => { 
     fetch('https://api.spotify.com/v1/me/tracks', {
@@ -54,20 +52,9 @@ const App = () => {
     .then((items) => {
       console.log("Reply received! This is what I received: ", items);
       setTracks(shuffleArray(items))
-      setCurrentTrack(items[0].track)
-      setTracksChoice(shuffleArray([items[0].track, items[1].track, items[2].track]))
       setSongsLoaded(true)
     })
   }, []);
-  
-
-  const checkAnswer = (choice) => {
-    if (currentTrack.id === choice.id) {
-      swal('Bravo!!', 'You won', 'success')
-    } else {
-      swal('Try again', 'This is not the correct answer', 'error')
-    }
-  }
 
   if (!songsLoaded) {
     return (
@@ -76,6 +63,10 @@ const App = () => {
       </div>
     );
   }
+
+  const track1 = tracks[0].track;
+  const track2 = tracks[1].track;
+  const track3 = tracks[2].track;
 
   return (
     <div className="App">
@@ -88,14 +79,9 @@ const App = () => {
         {shouldPlay && <Sound url={tcurrentTrack.preview_url} playStatus={Sound.status.PLAYING} />}
       </div>
       <div className="App-buttons">
-        <button onClick={() => setShouldPlay((previousValue) => !previousValue)}>
-          Play
-        </button>
-        <div className="App-buttons">
-          {tracksChoice.map((track) => (
-            <button onClick={() => checkAnswer(currentTrack, track)}> {track.name} </button>
-          ))}
-        </div>
+        <Button>{track1.name}</Button>
+        <Button>{track2.name}</Button>
+        <Button>{track3.name}</Button>
       </div>
     </div>
   );
