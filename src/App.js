@@ -7,7 +7,7 @@ import './App.css';
 import Sound from 'react-sound';
 import Button from './Button';
 
-const apiToken = '<<Copy the Spotify token here>>';
+const apiToken = 'BQAn9y1NfnKAS4r_SxCjqiOs3-PnLK4kF63RKzteJES0t__UUbjmpgA_t9BgKbaHoooDSKmFFGRDW3UL8hoITAkVbwukrtVyV_wfU_mMqWwlUN31qjqDGK-VwQ5K5T9jBl3zKFkOq3mMxS13lBq6mIipnsAoifk5hvXOLzsel5L846HS0deqV6cAI_j7p1Mlghrmf4sENhhgSA';
 
 function shuffleArray(array) {
   let counter = array.length;
@@ -30,10 +30,9 @@ function getRandomNumber(x) {
 
 const AlbumCover = (props) =>  {
   const src = props.currentTrack.album.images[0].url; 
-  console.log('src album', src)
-    return (
-        <img src={src} style={{ width: 400, height: 400 }} />
-    );
+  return (
+    <img src={src} style={{ width: 400, height: 400 }} />
+  );
 }
 
 const App = () => {
@@ -50,14 +49,14 @@ const App = () => {
         Authorization: 'Bearer ' + apiToken,
       },
     })
-    .then(response => response.json())
-    .then((data) => {
-      console.log("Reply received! This is what I received: ", data);
-      setTracks(shuffleArray(data.items))
-      setCurrentTrack(data.items[0].track)
-      setTracksChoice(shuffleArray([data.items[0].track, data.items[1].track, data.items[2].track]))
+      .then(response => response.json())
+      .then(data => data.items.filter((item) => !!item.track.preview_url))
+    .then((items) => {
+      console.log("Reply received! This is what I received: ", items);
+      setTracks(shuffleArray(items))
+      setCurrentTrack(items[0].track)
+      setTracksChoice(shuffleArray([items[0].track, items[1].track, items[2].track]))
       setSongsLoaded(true)
-      console.log('trakcs')
     })
   }, []);
   
